@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "582981251614",
+    "firebase_url": "https://quickresto-3d1c2.firebaseio.com",
+    "project_id": "quickresto-3d1c2",
+    "storage_bucket": "quickresto-3d1c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:582981251614:android:3c631b0caebb52e1e7740f",
+        "android_client_info": {
+          "package_name": "platformpbp.uajy.quickresto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "582981251614-7qgg0kt1kqun60an6lbh13nc6uuv39u5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAF2MYpMUlhYfzS6BDD9jGMh49LBOgrpDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "582981251614-7qgg0kt1kqun60an6lbh13nc6uuv39u5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

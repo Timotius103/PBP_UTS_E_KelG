@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">QuickResto</string>
+    <string name="intro">Lest start your Journey with us
+            Find more convenience in the reservation of the restaurant of your choice</string>
+    <string name="hint">Email</string>
+    <string name="hint2">Password</string>
+    <string name="hint3">Phone</string>
+    <string name="hint4">Full Name</string>
+</resources>
