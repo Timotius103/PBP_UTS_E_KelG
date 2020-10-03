@@ -36,7 +36,7 @@
         android:layout_marginEnd="55dp" />
 
     <ImageButton
-        android:id="@+id/myReservation"
+        android:id="@+id/myReservationMenu"
         android:layout_width="120dp"
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
@@ -48,14 +48,14 @@
         android:src="@drawable/myreserv"/>
 
     <ImageButton
-        android:id="@+id/rateMe"
+        android:id="@+id/rateMeMenu"
         android:layout_width="120dp"
         android:layout_height="100dp"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="67dp"
         android:layout_marginTop="420dp"
         android:layout_marginEnd="55dp"
-        android:layout_toEndOf="@+id/myReservation"
+        android:layout_toEndOf="@+id/myReservationMenu"
         android:textColorLink="#FFFFFF"
         android:scaleType="fitCenter"
         android:background="@drawable/mybutton"

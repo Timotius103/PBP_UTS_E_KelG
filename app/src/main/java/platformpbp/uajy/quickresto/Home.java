@@ -10,8 +10,8 @@ import android.widget.ImageButton;
 
 public class Home extends AppCompatActivity {
     private ImageButton reservation;
-    private ImageButton myReservation;
-    private ImageButton rateMe;
+    private ImageButton myReservationMenu;
+    private ImageButton rateMeMenu;
     private Button logOut;
 
     @Override
@@ -20,8 +20,8 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         reservation = (ImageButton) findViewById(R.id.reservation);
-        myReservation = (ImageButton) findViewById(R.id.myReservation);
-        rateMe = (ImageButton) findViewById(R.id.rateMe);
+        myReservationMenu = (ImageButton) findViewById(R.id.myReservationMenu);
+        rateMeMenu = (ImageButton) findViewById(R.id.rateMeMenu);
         logOut = (Button) findViewById(R.id.logOut);
 
         reservation.setOnClickListener(new View.OnClickListener() {
@@ -32,18 +32,18 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        myReservation.setOnClickListener(new View.OnClickListener() {
+        myReservationMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Home.this,MyReservation.class);
+                Intent intent = new Intent(Home.this,MyReservationMenu.class);
                 startActivity(intent);
             }
         });
 
-        rateMe.setOnClickListener(new View.OnClickListener() {
+        rateMeMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Home.this,RateMe.class);
+                Intent intent = new Intent(Home.this,RateMeMenu.class);
                 startActivity(intent);
             }
         });
