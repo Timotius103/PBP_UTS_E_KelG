@@ -24,6 +24,15 @@
         android:layout_marginTop="50dp"
         app:srcCompat="@drawable/rateusnow" />
 
+    <RatingBar
+        android:id="@+id/rating_rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="420dp"
+        android:numStars="5"
+        android:stepSize=".5" />
+
     <Button
         android:id="@+id/submit"
         android:layout_width="300dp"

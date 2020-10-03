@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RatingBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +21,7 @@ public class RateMeMenu extends AppCompatActivity {
 
         back = (FloatingActionButton) findViewById(R.id.floating_back);
         submit = (Button) findViewById(R.id.submit);
+        final RatingBar ratingRatingBar = (RatingBar) findViewById(R.id.rating_rating_bar);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
