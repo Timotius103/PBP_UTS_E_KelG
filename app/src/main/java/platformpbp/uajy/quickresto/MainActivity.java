@@ -15,8 +15,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         img=(ImageView)findViewById(R.id.welcome);
 
-
-
     }
     public void page1(View view){
         startActivity(new Intent(MainActivity.this,LoginSignIn.class));
