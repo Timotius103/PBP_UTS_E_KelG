@@ -15,25 +15,25 @@
         android:layout_marginTop="-75dp"
         app:srcCompat="@drawable/headline_short" />
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/line"
+        android:layout_marginTop="350dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp" />
+
     <ImageButton
         android:id="@+id/reservation"
         android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_height="240dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
         android:textColorLink="#FFFFFF"
         android:scaleType="fitCenter"
         android:src="@drawable/reserv"
         android:background="@drawable/mybutton"/>
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/line"
-        android:layout_marginTop="330dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp" />
 
     <ImageButton
         android:id="@+id/myReservationMenu"
