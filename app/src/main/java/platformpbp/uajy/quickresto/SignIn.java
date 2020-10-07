@@ -45,6 +45,9 @@ public class SignIn extends AppCompatActivity {
     public void login(View view){
         String mail=email.getText().toString();
         String pw=password.getText().toString();
+        ProgressDialog dialog= new ProgressDialog(SignIn.this);
+        dialog.setMessage("Please Whait");
+        dialog.show();
         if(mail.isEmpty()&&pw.isEmpty()) {
             mail2.setError("Please fill Email");
             pass.setError(("Please fill Password"));
@@ -63,9 +66,7 @@ public class SignIn extends AppCompatActivity {
             pass.setError(("Please fill Password"));
             Toast.makeText(this, "Password too short", Toast.LENGTH_SHORT).show();
         }else{
-            ProgressDialog dialog= new ProgressDialog(SignIn.this);
-            dialog.setMessage("Your message");
-            dialog.show();
+
             mAuth.signInWithEmailAndPassword(mail, pw)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
