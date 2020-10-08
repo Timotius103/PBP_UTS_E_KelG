@@ -40,6 +40,8 @@ public class SignUp extends AppCompatActivity {
     String enEmail;
     private TextInputLayout mail2;
     private TextInputLayout pass;
+    private TextInputLayout username;
+    private TextInputLayout tlpon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +52,11 @@ public class SignUp extends AppCompatActivity {
         back=(Button)findViewById(R.id.back2);
         email=(TextInputEditText)findViewById(R.id.mail);
         password=(TextInputEditText)findViewById(R.id.pass);
+
         mail2=(TextInputLayout)findViewById(R.id.mail_layout);
         pass=(TextInputLayout)findViewById(R.id.pass_layout);
+        username=(TextInputLayout)findViewById(R.id.FullName_layout) ;
+        tlpon=(TextInputLayout)findViewById(R.id.phone_layout);
 
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         final DatabaseReference table_user=database.getReference("User");
@@ -61,62 +66,90 @@ public class SignUp extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final ProgressDialog mDialog=new ProgressDialog(SignUp.this);
-                mDialog.setMessage("Please waiting....");
-                mDialog.show();
+                String mail=email.getText().toString();
+                String pw=password.getText().toString();
+                String name=fullname.getText().toString();
+                String tlp=phone.getText().toString();
+                if(mail.isEmpty()&&pw.isEmpty()&&name.isEmpty()&&tlp.isEmpty()) {
+                    username.setError("Please fill fullname");
+                    tlpon.setError("Please fill Phone Number");
+                    mail2.setError("Please fill Email");
+                    pass.setError(("Please fill Password"));
+                    Toast.makeText(v.getContext(), "Please fill full name, phone, email and password", Toast.LENGTH_SHORT).show();
+                }else if(name.isEmpty()) {
+                    username.setError("Please fill fullname");
+                    Toast.makeText(v.getContext(), "Please fill full name", Toast.LENGTH_SHORT).show();
+                }else if(tlp.isEmpty()){
+                    tlpon.setError("Please fill Phone Number");
+                    Toast.makeText(v.getContext(), "Please fill full phone", Toast.LENGTH_SHORT).show();
+                }else if(mail.isEmpty()){
+//            Toast.makeText(this,"Email invalid",Toast.LENGTH_SHORT).show();
+                    mail2.setError("Please fill correctly");
+                    Toast.makeText(v.getContext(),"Please fill Email",Toast.LENGTH_SHORT).show();
+                }else if(pw.isEmpty()){
+                    pass.setError(("Please fill Password"));
+                    Toast.makeText(v.getContext(),"Please Enter Password",Toast.LENGTH_SHORT).show();
+                }else  if(!mail.contains("@")){
+                    mail2.setError("Please fill Email");
+                    Toast.makeText(v.getContext(),"Email invalid",Toast.LENGTH_SHORT).show();
+                }else if(pw.length()<7) {
+                    pass.setError(("Please fill Password"));
+                    Toast.makeText(v.getContext(), "Password too short", Toast.LENGTH_SHORT).show();
+                }else {
+                    final ProgressDialog mDialog = new ProgressDialog(SignUp.this);
+                    mDialog.setMessage("Please waiting....");
+                    mDialog.show();
+                    table_user.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                table_user.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.child(fullname.getText().toString()).exists()) {
+                                mDialog.dismiss();
+                                Toast.makeText(SignUp.this, "Name already exist.", Toast.LENGTH_SHORT).show();
+                            } else {
+                                mDialog.dismiss();
+                                try {
+                                    enEmail = email.getText().toString();
+                                    enEmail = encodeUserEmail(enEmail);
+                                    if (dataSnapshot.child(enEmail).exists()) {
+                                        mDialog.dismiss();
+                                        Toast.makeText(SignUp.this, "Email already exist.", Toast.LENGTH_SHORT).show();
+                                        mDialog.cancel();
 
-                        if(dataSnapshot.child(fullname.getText().toString()).exists()) {
-                            mDialog.dismiss();
-                            Toast.makeText(SignUp.this, "Name already exist.", Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            mDialog.dismiss();
-                            try {
-                                enEmail=email.getText().toString();
-                                enEmail=encodeUserEmail(enEmail);
-                                if(dataSnapshot.child(enEmail).exists()){
-                                    mDialog.dismiss();
-                                    Toast.makeText(SignUp.this, "Email already exist.", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(SignUp.this, "Sign up successfully.", Toast.LENGTH_SHORT).show();
+                                        enkrip = encrypt(password.getText().toString());
+                                        mAuth.createUserWithEmailAndPassword(email.getText().toString(), enkrip)
+                                                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                                        UserClass user = new UserClass(fullname.getText().toString(), phone.getText().toString(), email.getText().toString(), enkrip);
+                                                        table_user.child(enEmail).setValue(user);
+                                                        sendEmailVerification();
+                                                    }
+                                                }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                //      Toast.makeText(SignUp.this, "Failed Register", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                                        finish();
+                                    }
 
-                                }else
-                                {
-                                    Toast.makeText(SignUp.this, "Sign up successfully.", Toast.LENGTH_SHORT).show();
-                                    enkrip = encrypt(password.getText().toString());
-                                    mAuth.createUserWithEmailAndPassword(email.getText().toString(), enkrip)
-                                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                                    UserClass user=new UserClass(fullname.getText().toString(), Integer.parseInt(phone.getText().toString()), email.getText().toString(),enkrip);
-                                                    table_user.child(enEmail).setValue(user);
-                                                    sendEmailVerification();
-                                                }
-                                            }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            //      Toast.makeText(SignUp.this, "Failed Register", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
 
-                                    finish();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                 }
 
-
-                            }catch (Exception e){
-                                e.printStackTrace();
                             }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
                         }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
+                    });
+                }
             }
         });
     }

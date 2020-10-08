@@ -13,6 +13,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
 
@@ -44,6 +45,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         if (!rst.getUrlfoto().equals("")){
             Glide.with(context)
                     .load(rst.getUrlfoto())
+                    .apply(new RequestOptions().override(80, 80))
                     .into(holder.foto_profil);
         }else{
             holder.foto_profil.setImageResource(R.drawable.ic_baseline_broken_image_24);

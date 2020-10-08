@@ -2,42 +2,42 @@ package platformpbp.uajy.quickresto;
 
 public class UserClass {
     private String fullName;
-    private int phone;
+    private String phone;
     private String mail;
     private String pass;
 
     public UserClass(){
     }
 
-    public UserClass(String fullName, int phone, String mail, String pass){
-        this.fullName=fullName;
-        this.phone=phone;
-        this.mail=mail;
-        this.pass=pass;
+    public UserClass(String fullName, String phone, String mail, String pass) {
+        this.fullName = fullName;
+        this.phone = phone;
+        this.mail = mail;
+        this.pass = pass;
     }
 
-    public String getFullName(){
+    public String getFullName() {
         return fullName;
     }
 
-    public void setFullName(String fullName){
-        this.fullName=fullName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public int getPhone(){
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int number){
-        this.phone=number;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getMail(){
+    public String getMail() {
         return mail;
     }
 
-    public void setMail(String mail){
-        this.mail=mail;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public String getPass() {

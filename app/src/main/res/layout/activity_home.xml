@@ -53,11 +53,12 @@
         android:textSize="10dp" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/out"
         android:layout_width="312dp"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:onClick="logout"
         android:layout_marginBottom="59dp"
         android:text="Log Out" />
 
@@ -72,7 +73,7 @@
         app:srcCompat="@drawable/user" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/UserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

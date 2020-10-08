@@ -30,8 +30,8 @@
 
             <ImageView
                 android:id="@+id/image_resto"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 app:loadImage="@{resto.urlfoto}"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="5dp"
