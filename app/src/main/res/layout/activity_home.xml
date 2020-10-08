@@ -10,67 +10,80 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="276dp"
+        android:layout_height="215dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="-3dp"
         android:layout_marginTop="-65dp"
         android:layout_marginEnd="1dp"
-        app:srcCompat="@drawable/headline" />
+        app:srcCompat="@drawable/headline_short" />
 
-    <Button
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_marginTop="330dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/line" />
+
+    <ImageButton
         android:id="@+id/rsrvenow"
         android:layout_width="317dp"
         android:layout_height="218dp"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="120dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="271dp"
-        android:onClick="reservenow"
-        android:text="Reserve Now" />
+        android:scaleType="fitCenter"
+        android:background="@drawable/mybutton"
+        android:src="@drawable/reserv"/>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="156dp"
-        android:layout_height="127dp"
+    <ImageButton
+        android:id="@+id/myreserve"
+        android:layout_width="140dp"
+        android:layout_height="115dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="405dp"
         android:layout_marginStart="48dp"
         android:layout_marginBottom="135dp"
-        android:text="My Reservation"
-        android:textSize="10dp" />
+        android:src="@drawable/myreserv"
+        android:scaleType="fitCenter"
+        android:background="@drawable/mybutton" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="156dp"
-        android:layout_height="127dp"
+    <ImageButton
+        android:id="@+id/rate"
+        android:layout_width="140dp"
+        android:layout_height="115dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="205dp"
-        android:layout_marginBottom="135dp"
-        android:onClick="rate"
-        android:text="Rate Us"
-        android:textSize="10dp" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="223dp"
+        android:layout_marginTop="405dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/mybutton"
+        android:scaleType="fitCenter"
+        android:src="@drawable/rate" />
 
     <Button
         android:id="@+id/out"
         android:layout_width="312dp"
-        android:layout_height="70dp"
+        android:layout_height="55dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="logout"
-        android:layout_marginBottom="59dp"
+        android:layout_marginBottom="55dp"
+        android:backgroundTint="#EA2F2F"
         android:text="Log Out" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="65dp"
-        android:layout_height="64dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+    <ImageButton
+        android:id="@+id/profil"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="330dp"
         android:layout_marginTop="7dp"
-        android:layout_marginEnd="35dp"
-        app:srcCompat="@drawable/user" />
+        android:scaleType="fitCenter"
+        android:background="@drawable/profilbtn"
+        android:src="@drawable/user" />
 
     <TextView
         android:id="@+id/UserName"
@@ -78,8 +91,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="108dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="88dp"
         android:text="TextView" />
+
 
 </RelativeLayout>
