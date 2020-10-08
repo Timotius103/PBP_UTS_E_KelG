@@ -85,7 +85,7 @@
                 android:layout_marginTop="14dp"
                 android:layout_marginBottom="20dp"
                 android:maxLines="3"
-                android:text="@{String.valueOf(resto.jarak)}"
+                android:text="@{String.valueOf(resto.tlp)}"
                 android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="@+id/jarak_resto"
                 app:layout_constraintHorizontal_bias="1.0"
