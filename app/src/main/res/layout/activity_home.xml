@@ -21,7 +21,7 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_marginTop="330dp"
+        android:layout_marginTop="345dp"
         android:layout_marginLeft="48dp"
         android:layout_marginRight="48dp"
         android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
         android:layout_width="140dp"
         android:layout_height="115dp"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="405dp"
+        android:layout_marginTop="435dp"
         android:layout_marginStart="48dp"
         android:layout_marginBottom="135dp"
         android:src="@drawable/myreserv"
@@ -59,7 +59,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="223dp"
-        android:layout_marginTop="405dp"
+        android:layout_marginTop="435dp"
         android:layout_marginEnd="48dp"
         android:background="@drawable/mybutton"
         android:scaleType="fitCenter"
@@ -68,10 +68,10 @@
     <Button
         android:id="@+id/out"
         android:layout_width="312dp"
-        android:layout_height="55dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="55dp"
+        android:layout_marginBottom="60dp"
         android:backgroundTint="#EA2F2F"
         android:text="Log Out" />
 
