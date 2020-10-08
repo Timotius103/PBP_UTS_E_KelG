@@ -41,13 +41,13 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        myreserve.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Home.this,MyReservationMenu.class);
-                startActivity(intent);
-            }
-        });
+//        myreserve.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Home.this,MyReservationMenu.class);
+//                startActivity(intent);
+//            }
+//        });
 
         rate.setOnClickListener(new View.OnClickListener() {
             @Override
