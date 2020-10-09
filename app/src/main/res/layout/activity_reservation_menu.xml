@@ -86,5 +86,28 @@
             android:layout_marginTop="28dp"
             android:layout_marginEnd="108dp"
             android:text="TextView" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/search_name_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="42dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" >
+                <SearchView
+                    android:id="@+id/search_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:queryHint="Search by restaurant"
+                    android:autofillHints=""
+                    android:iconifiedByDefault="false"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
     </RelativeLayout>
 </layout>
