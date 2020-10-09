@@ -6,4 +6,6 @@
     <string name="hint2">Password</string>
     <string name="hint3">Phone</string>
     <string name="hint4">Full Name</string>
+    <string name="hint5">New Password</string>
+    <string name="hint6">Confirm Password</string>
 </resources>

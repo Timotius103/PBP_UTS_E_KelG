@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 
@@ -20,6 +22,7 @@ public class ReservationMenu extends AppCompatActivity {
     private ArrayList<Restorant>ListRestorant;
     private FloatingActionButton floatback;
     private RecyclerViewAdapter adapter;
+    TextView txtFullName;
     ActivityReservationMenuBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,8 @@ public class ReservationMenu extends AppCompatActivity {
         binding.recyclerResto.setLayoutManager((new LinearLayoutManager(this)));
         adapter=new RecyclerViewAdapter(ReservationMenu.this,ListRestorant);
         binding.setBaru(adapter);
+        txtFullName=findViewById(R.id.UserName);
+        txtFullName.setText(Common.currentUser.getFullName());
         floatback=findViewById(R.id.floating_back);
     }
 
