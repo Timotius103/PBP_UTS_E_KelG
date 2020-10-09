@@ -22,6 +22,7 @@
         android:id="@+id/title_regis_menu"
         style="@style/TextAppearance.AppCompat.Title"
         android:text="McDonald's Ambarukmo"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -67,7 +68,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_number_layout"
-            android:layout_marginTop="380dp"
+            android:layout_marginTop="360dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -83,7 +84,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_date_layout"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -99,7 +100,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_time_layout"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -119,7 +120,7 @@
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="620dp"
+        android:layout_marginTop="580dp"
         android:layout_marginEnd="55dp"
         android:backgroundTint="#7EFFD1"
         android:text="R E S E R V E"
