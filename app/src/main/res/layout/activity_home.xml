@@ -90,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="13dp"
         android:layout_marginEnd="88dp"
         android:text="TextView" />
 
@@ -101,8 +101,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="13dp"
-        android:layout_marginEnd="88dp"
-        android:text="Welcome" />
+        android:layout_marginEnd="147dp"
+        android:text="Hello," />
 
 
 </RelativeLayout>
