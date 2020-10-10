@@ -14,103 +14,133 @@
         android:layout_alignParentStart="true"
         android:orientation="vertical"
         android:gravity="center"
-        android:id="@+id/page1"
-        android:weightSum="2">
+        android:id="@+id/page2"
+        android:weightSum="4">
 
-        <ImageView
-            android:id="@+id/imageView2"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:src="@drawable/headline_short"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/profil"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/profilbtn"
+                android:scaleType="fitCenter"
+                android:src="@drawable/user"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/UserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toStartOf="@+id/profil"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="12dp"
+                android:text="Hello,"
+                app:layout_constraintEnd_toStartOf="@+id/UserName"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/rsrvenow"
+                android:layout_width="match_parent"
+                android:layout_height="218dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/mybutton"
+                android:scaleType="fitCenter"
+                android:src="@drawable/reserv" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:weightSum="2">
+
+            <ImageButton
+                android:id="@+id/myreserve"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:layout_alignParentStart="true"
+                android:layout_weight="1"
+                android:src="@drawable/myreserv"
+                android:scaleType="fitCenter"
+                android:background="@drawable/mybutton" />
+
+            <ImageButton
+                android:id="@+id/rate"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="120dp"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/mybutton"
+                android:scaleType="fitCenter"
+                android:src="@drawable/rate" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="119dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
-            app:srcCompat="@drawable/headline_short" />
+            <Button
+                android:id="@+id/out"
+                android:layout_width="312dp"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="#EA2F2F"
+                android:text="Log Out" />
+        </LinearLayout>
 
-
-
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_marginTop="345dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginRight="48dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/line" />
-
-    <ImageButton
-        android:id="@+id/rsrvenow"
-        android:layout_width="317dp"
-        android:layout_height="218dp"
-        android:layout_marginTop="120dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="271dp"
-        android:scaleType="fitCenter"
-        android:background="@drawable/mybutton"
-        android:src="@drawable/reserv"/>
-
-    <ImageButton
-        android:id="@+id/myreserve"
-        android:layout_width="140dp"
-        android:layout_height="120dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="430dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="100dp"
-        android:src="@drawable/myreserv"
-        android:scaleType="fitCenter"
-        android:background="@drawable/mybutton" />
-
-    <ImageButton
-        android:id="@+id/rate"
-        android:layout_width="140dp"
-        android:layout_height="120dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="195dp"
-        android:layout_marginTop="430dp"
-        android:layout_marginEnd="5dp"
-        android:background="@drawable/mybutton"
-        android:scaleType="fitCenter"
-        android:src="@drawable/rate" />
-
-    <Button
-        android:id="@+id/out"
-        android:layout_width="312dp"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
-        android:backgroundTint="#EA2F2F"
-        android:text="Log Out" />
-
-    <ImageButton
-        android:id="@+id/profil"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="300dp"
-        android:layout_marginTop="5dp"
-        android:scaleType="fitCenter"
-        android:background="@drawable/profilbtn"
-        android:src="@drawable/user" />
-
-    <TextView
-        android:id="@+id/UserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="80dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="115dp"
-        android:text="Hello," />
+    </LinearLayout>
 
 
 </RelativeLayout>
+
+<!--<ImageView-->
+<!--android:id="@+id/imageView3"-->
+<!--android:layout_marginTop="345dp"-->
+<!--android:layout_marginLeft="48dp"-->
+<!--android:layout_marginRight="48dp"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_centerHorizontal="true"-->
+<!--app:srcCompat="@drawable/line" />-->

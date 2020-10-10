@@ -65,9 +65,12 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:weightSum="2">
 
         <Button
             android:id="@+id/button6"
@@ -76,6 +79,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:onClick="signin"
+            android:layout_weight="1"
             android:layout_marginRight="5dp"
             android:text="Sign In" />
 
@@ -83,6 +87,7 @@
             android:id="@+id/button7"
             android:layout_width="179dp"
             android:layout_height="60dp"
+            android:layout_weight="1"
             android:layout_marginLeft="5dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
