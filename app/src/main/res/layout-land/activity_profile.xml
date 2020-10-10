@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-55dp"
+            app:srcCompat="@drawable/headline_short" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_back_mr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="75dp"
+            android:layout_marginStart="27dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_marginTop="140dp"
+            android:layout_weight="1.2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/profil"
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/profilbtn"
+                app:srcCompat="@drawable/user_large" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1.8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="140dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/line_ver"
+                android:padding="10dp">
+            </ImageView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="140dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="25dp"
+                android:paddingLeft="20dp">
+                <LinearLayout
+                    android:layout_weight="2"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/nametext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NAME              :" />
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/addresstext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email               :" />
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/phonetext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone              :" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/UserName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView" />
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/UserEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView" />
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/UserPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="20dp"
+                android:paddingBottom="30dp"
+                android:paddingRight="20dp">
+                <Button
+                    android:layout_weight="1"
+                    android:id="@+id/editprofile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#7EFFD1"
+                    android:text="Edit"/>
+                <LinearLayout
+                    android:layout_weight="1.8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </LinearLayout>
+                <Button
+                    android:layout_weight="1"
+                    android:id="@+id/deleteprofile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#EA2F2F"
+                    android:text="Delete Profil" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-55dp"
+            app:srcCompat="@drawable/headline_short" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_back_mr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="75dp"
+            android:layout_marginStart="27dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+        <LinearLayout
+            android:layout_marginTop="140dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/rateusnow" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="140dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+        <LinearLayout
+            android:layout_marginTop="140dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_weight="3.5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1.6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <RatingBar
+                        android:id="@+id/rating_rating_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/ImageRatingBar"
+                        android:numStars="5"
+                        android:stepSize=".5" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="3.5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="140dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="60dp">
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#7EFFD1"
+                android:text="SUBMIT"
+                android:textColorLink="#FFFFFF"
+                android:textSize="18dp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
