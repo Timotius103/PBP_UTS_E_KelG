@@ -24,7 +24,7 @@
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-74dp"
+        android:layout_marginTop="-80dp"
         app:srcCompat="@drawable/headline_short" />
 
     <ImageView
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="410dp"
         style="@style/ImageRatingBar"
         android:numStars="5"
         android:stepSize=".5" />

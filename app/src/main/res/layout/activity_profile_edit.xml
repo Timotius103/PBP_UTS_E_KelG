@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-400dp"
+        android:layout_marginTop="-470dp"
         app:srcCompat="@drawable/headline_large" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -102,8 +102,8 @@
 
     <ImageButton
         android:id="@+id/profil"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="65dp"
         android:scaleType="fitCenter"
@@ -112,13 +112,13 @@
 
     <Button
         android:id="@+id/update"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
         android:background="@drawable/profilbtn"
         android:backgroundTint="#FFFFFF"
         android:text="DONE"
-        android:textSize="18dp"
-        android:layout_marginLeft="290dp"
+        android:textSize="15sp"
+        android:layout_marginLeft="270dp"
         android:layout_marginTop="20dp"/>
 
 </RelativeLayout>
