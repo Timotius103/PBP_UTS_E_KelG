@@ -21,7 +21,7 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floating_back_mr"
+            android:id="@+id/floating_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="75dp"
@@ -30,6 +30,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <LinearLayout
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -52,91 +53,53 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp">
+        android:orientation="horizontal">
         <LinearLayout
-            android:layout_marginTop="140dp"
             android:layout_weight="1"
+            android:layout_marginTop="140dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
             <ImageView
                 android:id="@+id/imageView5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/rateusnow" />
-        </LinearLayout>
+                app:srcCompat="@drawable/thankforfeedback" />
 
-        <LinearLayout
-            android:layout_marginTop="140dp"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
         </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp">
         <LinearLayout
-            android:layout_marginTop="140dp"
-            android:layout_weight="1"
+            android:layout_weight="1.8"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_weight="3.5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </LinearLayout>
-            <LinearLayout
-                android:layout_weight="1"
+            android:layout_marginTop="140dp">
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_weight="1.5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_weight="1.6"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <RatingBar
-                        android:id="@+id/rating_rating_bar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="@style/ImageRatingBar"
-                        android:numStars="5"
-                        android:stepSize=".5" />
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_weight="3.5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </LinearLayout>
+                app:srcCompat="@drawable/line_ver"
+                android:padding="10dp">
+            </ImageView>
         </LinearLayout>
-
         <LinearLayout
-            android:layout_marginTop="140dp"
             android:layout_weight="1"
+            android:layout_marginTop="140dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="60dp">
+            android:orientation="vertical"
+            android:paddingTop="70dp"
+            android:paddingBottom="70dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
 
             <Button
-                android:id="@+id/submit"
+                android:id="@+id/backtm"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="#7EFFD1"
-                android:text="SUBMIT"
+                android:text="BACK TO MENU"
                 android:textColorLink="#FFFFFF"
                 android:textSize="18dp" />
+
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
