@@ -26,7 +26,7 @@
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
-                android:layout_height="85dp"
+                android:layout_height="90dp"
                 android:src="@drawable/headline_short"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -132,15 +132,4 @@
 
     </LinearLayout>
 
-
 </RelativeLayout>
-
-<!--<ImageView-->
-<!--android:id="@+id/imageView3"-->
-<!--android:layout_marginTop="345dp"-->
-<!--android:layout_marginLeft="48dp"-->
-<!--android:layout_marginRight="48dp"-->
-<!--android:layout_width="wrap_content"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:layout_centerHorizontal="true"-->
-<!--app:srcCompat="@drawable/line" />-->
