@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">QuickResto</string>
-    <string name="intro">Lets start your Journey with us
-            Find more convenience in the reservation of the restaurant of your choice</string>
+    <string name="intro">Lets start your Journey with us</string>
+    <string name="intro2">Find more convenience in the reservation of the restaurant of your choice</string>
     <string name="hint">Email</string>
     <string name="hint2">Password</string>
     <string name="hint3">Phone</string>

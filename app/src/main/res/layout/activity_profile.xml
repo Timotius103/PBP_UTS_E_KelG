@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-470dp"
+        android:layout_marginTop="-420dp"
         app:srcCompat="@drawable/headline_large" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
