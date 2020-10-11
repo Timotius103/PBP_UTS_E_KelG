@@ -17,6 +17,7 @@
         <activity android:name=".RateMeMenu" />
         <activity android:name=".MyReservationMenu" />
         <activity android:name=".MapRestaurant"/>
+        <activity android:name=".regisReservation"/>
         <activity android:name=".ReservationMenu" />
         <activity android:name=".Home" />
         <activity android:name=".SignUp" />
@@ -28,7 +29,6 @@
         <activity android:name=".SplashActivity" android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -57,8 +57,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(context,MapRestaurant.class);
-//                context.startActivity(intent);
+                intent.putExtra("alamat",String.valueOf(rst.alamat));
                 intent.putExtra("resto",String.valueOf(rst.NamaResto));
+                intent.putExtra("gambar",String.valueOf(rst.urlfoto));
                 intent.putExtra("latitude",rst.latitude);
                 intent.putExtra("longitude",rst.longitude);
                 context.startActivity(intent);

@@ -9,13 +9,14 @@ import com.bumptech.glide.Glide;
 public class Restorant {
     public String NamaResto;
     public String jeniResto;
+    public String alamat;
     double jarak;
     public String tlp;
     public double longitude;
     public double latitude;
     public String urlfoto;
 
-    public Restorant(String namaResto, String jeniResto, double jarak, String tlp, double longitude, double latitude, String urlfoto) {
+    public Restorant(String namaResto, String jeniResto, String alamat, double jarak, String tlp, double longitude, double latitude, String urlfoto) {
         NamaResto = namaResto;
         this.jeniResto = jeniResto;
         this.jarak = jarak;
@@ -23,6 +24,15 @@ public class Restorant {
         this.longitude = longitude;
         this.latitude = latitude;
         this.urlfoto = urlfoto;
+        this.alamat=alamat;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
     }
 
     public String getNamaResto() {

@@ -97,6 +97,7 @@
                 android:layout_height="wrap_content" />
 
             <TextView
+                android:id="@+id/address"
                 android:hint="Restaurant Address"
                 style="@style/TextAppearance.MaterialComponents.Body1"
                 android:layout_width="match_parent"
@@ -111,6 +112,7 @@
 
             <TextView
                 android:hint="1/2/3/4"
+                android:id="@+id/numberPepel"
                 style="@style/TextAppearance.MaterialComponents.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -123,6 +125,7 @@
                 android:layout_height="wrap_content" />
 
             <TextView
+                android:id="@+id/datereserveproses"
                 android:hint="dd/mm/yyyy"
                 style="@style/TextAppearance.MaterialComponents.Body1"
                 android:layout_width="match_parent"
@@ -137,6 +140,7 @@
 
             <TextView
                 android:hint="1pm - 3pm"
+                android:id="@+id/timeproses"
                 style="@style/TextAppearance.MaterialComponents.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

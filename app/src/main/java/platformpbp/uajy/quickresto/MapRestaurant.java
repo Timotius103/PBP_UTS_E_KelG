@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,8 @@ import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.api.directions.v5.models.DirectionsResponse;
 import com.mapbox.api.directions.v5.models.DirectionsRoute;
+import com.mapbox.api.geocoding.v5.GeocodingCriteria;
+import com.mapbox.api.geocoding.v5.MapboxGeocoding;
 import com.mapbox.api.geocoding.v5.models.CarmenFeature;
 import com.mapbox.geojson.Feature;
 import com.mapbox.geojson.FeatureCollection;
@@ -72,7 +76,10 @@ public class MapRestaurant extends AppCompatActivity implements OnMapReadyCallba
     private TextView txtFullName;
     private FloatingActionButton backmr;
     private Double lon,la;
-    private String namaresto;
+    private String namaresto,alamatResto,url;
+    private ImageView gambar;
+
+    private Button nextPage;
 
     private Point destinationPointer;
     private Marker destinationMarker;
@@ -135,10 +142,12 @@ public class MapRestaurant extends AppCompatActivity implements OnMapReadyCallba
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
         setContentView(R.layout.activity_map_restaurant);
-
+        nextPage=findViewById(R.id.next_page);
         lon = getIntent().getDoubleExtra("longitude",0);
         la = getIntent().getDoubleExtra("latitude",0);
         namaresto=getIntent().getStringExtra("resto");
+        alamatResto=getIntent().getStringExtra("alamat");
+        url=getIntent().getStringExtra("gambar");
         mapView = findViewById(R.id.mapView);
         txtFullName=findViewById(R.id.UserNameMap);
         txtFullName.setText(Common.currentUser.getFullName());
@@ -152,6 +161,17 @@ public class MapRestaurant extends AppCompatActivity implements OnMapReadyCallba
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MapRestaurant.this,ReservationMenu.class);
+                startActivity(intent);
+            }
+        });
+
+        nextPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MapRestaurant.this,regisReservation.class);
+                intent.putExtra("gambar2",url);
+                intent.putExtra("alamat2",String.valueOf(alamatResto));
+                intent.putExtra("resto2",String.valueOf(namaresto));
                 startActivity(intent);
             }
         });
@@ -235,7 +255,7 @@ public class MapRestaurant extends AppCompatActivity implements OnMapReadyCallba
                     destinationMarker = mapboxMap.addMarker(new MarkerOptions().position(new LatLng(((Point) selectedCarmenFeature.geometry()).latitude(),
                             ((Point) selectedCarmenFeature.geometry()).longitude())));
                     destinationPointer = Point.fromLngLat(((Point) selectedCarmenFeature.geometry()).longitude(), ((Point) selectedCarmenFeature.geometry()).latitude());
-                    navifab.setEnabled(true);
+//                    navifab.setEnabled(true);
                     getRoute(origin, destinationPointer);
                 }
             }
@@ -285,6 +305,7 @@ public class MapRestaurant extends AppCompatActivity implements OnMapReadyCallba
                 .bearing(180) // Rotate the camera
                 .tilt(30) // Set the camera tilt
                 .build(); // Creates a CameraPosition from the builder
+
         mapboxMap.setStyle(new Style.Builder().fromUri(Style.MAPBOX_STREETS), new Style.OnStyleLoaded()
         {
             @Override
@@ -294,22 +315,28 @@ public class MapRestaurant extends AppCompatActivity implements OnMapReadyCallba
                 initLayers(style);
                 mapboxMap.animateCamera(CameraUpdateFactory
                         .newCameraPosition(position), 500);
-                mapboxMap.addOnMapClickListener(new MapboxMap.OnMapClickListener()
-                {
-                    @Override
-                    public boolean onMapClick(@NonNull LatLng point)
-                    {
-                        if(destinationMarker != null)
-                        {
-                            mapboxMap.removeMarker(destinationMarker);
-                        }
-                        destinationMarker = mapboxMap.addMarker(new MarkerOptions().position(point));
-                        destinationPointer = Point.fromLngLat(point.getLongitude(), point.getLatitude());
-                        getRoute(origin, destinationPointer);
-//                        navifab.setEnabled(true);
-                        return true;
-                    }
-                });
+
+
+
+
+// The result of this reverse geocode will give you "Pennsylvania Ave NW"
+
+//                mapboxMap.addOnMapClickListener(new MapboxMap.OnMapClickListener()
+//                {
+//                    @Override
+//                    public boolean onMapClick(@NonNull LatLng point)
+//                    {
+//                        if(destinationMarker != null)
+//                        {
+//                            mapboxMap.removeMarker(destinationMarker);
+//                        }
+//                        destinationMarker = mapboxMap.addMarker(new MarkerOptions().position(point));
+//                        destinationPointer = Point.fromLngLat(point.getLongitude(), point.getLatitude());
+//                        getRoute(origin, destinationPointer);
+////                        navifab.setEnabled(true);
+//                        return true;
+//                    }
+//                });
             }
         });
     }

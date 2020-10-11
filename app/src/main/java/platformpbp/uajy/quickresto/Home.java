@@ -18,6 +18,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class Home extends AppCompatActivity {
     ImageButton reserve;
@@ -27,6 +29,8 @@ public class Home extends AppCompatActivity {
     Button logout;
     TextView txtFullName;
     private String CHANNEL_ID = "Channel 3";
+
+    String name,alamt,no,tglan,thun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,12 @@ public class Home extends AppCompatActivity {
         txtFullName=findViewById(R.id.UserName);
         txtFullName.setText(Common.currentUser.getFullName());
 
+        name=getIntent().getStringExtra("resto4");
+        alamt=getIntent().getStringExtra("alamat4");
+        no=getIntent().getStringExtra("number");
+        tglan=getIntent().getStringExtra("Date1");
+        thun=getIntent().getStringExtra("Time1");
+
         reserve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,13 +60,18 @@ public class Home extends AppCompatActivity {
             }
         });
 
-//        myreserve.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Home.this,MyReservationMenu.class);
-//                startActivity(intent);
-//            }
-//        });
+        myreserve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this,MyReservationMenu.class);
+                intent.putExtra("resto3",name);
+                intent.putExtra("alamat3",alamt);
+                intent.putExtra("Number",no);
+                intent.putExtra("Date",tglan);
+                intent.putExtra("Time",thun);
+                startActivity(intent);
+            }
+        });
 
         rate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +101,7 @@ public class Home extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         createNotificationChannel();
                         addNotification();
+                        FirebaseAuth.getInstance().signOut();
                         Intent intent = new Intent(Home.this,LoginSignIn.class);
                         startActivity(intent);
                     }
