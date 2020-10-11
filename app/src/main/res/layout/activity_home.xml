@@ -7,6 +7,48 @@
     android:layout_height="match_parent"
     tools:context=".Home">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/headline"
+        android:scaleType="fitXY"/>
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:padding="10dp"
+        android:src="@drawable/logo" />
+
+    <ImageButton
+        android:id="@+id/profil"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/profilbtn"
+        android:scaleType="fitCenter"
+        android:src="@drawable/user" />
+    <TextView
+        android:id="@+id/UserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textView5"
+        android:text="TextView"
+        android:layout_marginTop="55dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="10dp"
+        android:text="Hello,"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,64 +59,23 @@
         android:id="@+id/page2"
         android:weightSum="4">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+            android:layout_weight="1."
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:src="@drawable/headline_short"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageButton
-                android:id="@+id/profil"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="12dp"
-                android:background="@drawable/profilbtn"
-                android:scaleType="fitCenter"
-                android:src="@drawable/user"
-                app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/UserName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="8dp"
-                android:text="TextView"
-                app:layout_constraintEnd_toStartOf="@+id/profil"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="12dp"
-                android:text="Hello,"
-                app:layout_constraintEnd_toStartOf="@+id/UserName"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:padding="10dp">
 
             <ImageButton
                 android:id="@+id/rsrvenow"
                 android:layout_width="match_parent"
-                android:layout_height="218dp"
+                android:layout_height="match_parent"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_centerHorizontal="true"
@@ -85,47 +86,50 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:layout_weight="1"
-            android:weightSum="2">
+            android:layout_marginTop="20dp"
+            android:padding="20dp">
 
             <ImageButton
                 android:id="@+id/myreserve"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="120dp"
-                android:layout_alignParentStart="true"
                 android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:src="@drawable/myreserv"
                 android:scaleType="fitCenter"
                 android:background="@drawable/mybutton" />
 
+            <LinearLayout
+                android:layout_weight="1.75"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </LinearLayout>
+
             <ImageButton
                 android:id="@+id/rate"
-                android:layout_width="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="10dp"
-                android:layout_height="120dp"
-                android:layout_alignParentStart="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="@drawable/mybutton"
                 android:scaleType="fitCenter"
                 android:src="@drawable/rate" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingTop="20dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="65dp">
 
             <Button
                 android:id="@+id/out"
-                android:layout_width="312dp"
-                android:layout_height="60dp"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:backgroundTint="#EA2F2F"
                 android:text="Log Out" />
         </LinearLayout>

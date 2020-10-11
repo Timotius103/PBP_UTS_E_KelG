@@ -10,12 +10,18 @@
         android:layout_height="match_parent">
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-55dp"
-            app:srcCompat="@drawable/headline_short" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:paddingBottom="50dp"
+            app:srcCompat="@drawable/headline_large" />
     </LinearLayout>
-
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:padding="10dp"
+        android:src="@drawable/logo" />
     <LinearLayout
         android:layout_width="80dp"
         android:layout_height="80dp"
