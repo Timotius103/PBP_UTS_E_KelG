@@ -72,6 +72,7 @@ public class MapRestaurant extends AppCompatActivity implements OnMapReadyCallba
     private TextView txtFullName;
     private FloatingActionButton backmr;
     private Double lon,la;
+    private String namaresto;
 
     private Point destinationPointer;
     private Marker destinationMarker;
@@ -137,6 +138,7 @@ public class MapRestaurant extends AppCompatActivity implements OnMapReadyCallba
 
         lon = getIntent().getDoubleExtra("longitude",0);
         la = getIntent().getDoubleExtra("latitude",0);
+        namaresto=getIntent().getStringExtra("resto");
         mapView = findViewById(R.id.mapView);
         txtFullName=findViewById(R.id.UserNameMap);
         txtFullName.setText(Common.currentUser.getFullName());
@@ -276,7 +278,7 @@ public class MapRestaurant extends AppCompatActivity implements OnMapReadyCallba
     public void onMapReady(@NonNull MapboxMap mapboxMap)
     {
         this.mapboxMap = mapboxMap;
-        mapboxMap.addMarker(new MarkerOptions().position(new LatLng(la, lon)));
+        mapboxMap.addMarker(new MarkerOptions().position(new LatLng(la, lon)).title(namaresto));
         CameraPosition position = new CameraPosition.Builder()
                 .target(new LatLng(la, lon)) // Sets the new camera position
                 .zoom(17) // Sets the zoom
