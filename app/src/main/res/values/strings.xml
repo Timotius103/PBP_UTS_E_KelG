@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">QuickResto</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoidGltb3RpdXMiLCJhIjoiY2tmcGU3eWx1MDliODJ4bzdidjhtc3UxcSJ9.cUFRtvmdkgsS6fiwZEuxow</string>
     <string name="intro">Lets start your Journey with us</string>
     <string name="intro2">Find more convenience in the reservation of the restaurant of your choice</string>
     <string name="hint">Email</string>

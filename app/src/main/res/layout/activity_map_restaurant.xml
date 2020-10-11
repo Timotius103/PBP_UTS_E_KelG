@@ -42,7 +42,7 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floating_back"
+            android:id="@+id/floating_backMap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="62dp"
@@ -63,7 +63,7 @@
         app:srcCompat="@drawable/user" />
 
     <TextView
-        android:id="@+id/UserName"
+        android:id="@+id/UserNameMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

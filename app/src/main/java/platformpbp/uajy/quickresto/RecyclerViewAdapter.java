@@ -1,9 +1,12 @@
 package platformpbp.uajy.quickresto;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -53,6 +56,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.parent.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                Intent intent = new Intent(context,MapRestaurant.class);
+//                context.startActivity(intent);
+
+                intent.putExtra("latitude",rst.latitude);
+                intent.putExtra("longitude",rst.longitude);
+                context.startActivity(intent);
                 Toast.makeText(context, "You touch me?" , Toast.LENGTH_LONG).show();
             }
         });

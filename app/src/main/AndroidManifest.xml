@@ -16,6 +16,7 @@
         <activity android:name=".ThankYouMenu" />
         <activity android:name=".RateMeMenu" />
         <activity android:name=".MyReservationMenu" />
+        <activity android:name=".MapRestaurant"/>
         <activity android:name=".ReservationMenu" />
         <activity android:name=".Home" />
         <activity android:name=".SignUp" />

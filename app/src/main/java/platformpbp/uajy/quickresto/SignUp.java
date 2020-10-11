@@ -271,7 +271,7 @@ public class SignUp extends AppCompatActivity {
                 .setContentText("Terima kasih telah mendaftar. Silahkan verifikasi email anda :)")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
-        Intent notificationIntent= new Intent(this,MainActivity.class);
+        Intent notificationIntent= new Intent(this,LoginSignIn.class);
         PendingIntent contentIntent = PendingIntent.getActivity(this,0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         builder.setContentIntent(contentIntent);
 
