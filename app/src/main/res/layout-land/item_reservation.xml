@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="resto"
+            type="platformpbp.uajy.quickresto.model.Restorant" />
+        <variable
+            name="main"
+            type="platformpbp.uajy.quickresto.RecyclerViewAdapter" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/item_reservation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:checkable="true"
+        android:clickable="true"
+        android:focusable="true"
+        tools:context=".RecyclerViewAdapter"
+        app:cardCornerRadius="20dp"
+        app:cardMaxElevation="40dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp">
+
+            <ImageView
+                android:id="@+id/image_resto"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:loadImage="@{resto.urlfoto}"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="19dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/name_resto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:text="@{resto.NamaResto}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/image_resto"
+                app:layout_constraintTop_toTopOf="@+id/image_resto" />
+
+            <TextView
+                android:id="@+id/type_resto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:maxLines="3"
+                android:text="@{resto.jeniResto}"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/name_resto"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/name_resto"
+                app:layout_constraintTop_toBottomOf="@+id/name_resto" />
+
+            <TextView
+                android:id="@+id/jarak_resto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:maxLines="3"
+                android:text="@{String.valueOf(resto.jarak)}"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/type_resto"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/type_resto"
+                app:layout_constraintTop_toBottomOf="@+id/type_resto" />
+
+            <TextView
+                android:id="@+id/phone_resto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="20dp"
+                android:maxLines="3"
+                android:text="@{String.valueOf(resto.tlp)}"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/jarak_resto"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/jarak_resto"
+                app:layout_constraintTop_toBottomOf="@+id/jarak_resto" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
