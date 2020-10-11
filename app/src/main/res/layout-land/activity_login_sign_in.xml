@@ -29,8 +29,10 @@
             <LinearLayout
                 android:layout_weight="0.8"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
                 <TextView
+                    android:layout_weight="1.5"
                     android:id="@+id/textView2"
                     style="@style/Desc"
                     android:layout_width="match_parent"
@@ -38,6 +40,14 @@
                     android:layout_marginTop="30dp"
                     android:text="@string/intro"
                     android:textColor="#FFFF"/>
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/textView3"
+                    style="@style/Desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/intro2"
+                    android:textColor="#FFFF" />
             </LinearLayout>
             <LinearLayout
                 android:layout_weight="0.8"

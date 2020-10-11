@@ -52,9 +52,8 @@
                 android:hint="@string/hint"
                 app:errorEnabled="true">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:inputType="text"
                     android:id="@+id/email">
                 </com.google.android.material.textfield.TextInputEditText>
@@ -69,9 +68,8 @@
                 android:hint="@string/hint2"
                 app:errorEnabled="true">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:id="@+id/password">
                 </com.google.android.material.textfield.TextInputEditText>

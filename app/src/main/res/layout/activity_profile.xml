@@ -33,6 +33,109 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_weight="0.6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="70dp">
+            <ImageView
+                android:id="@+id/profil"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/profilbtn"
+                app:srcCompat="@drawable/user_large" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_weight="1.5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/nametext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="NAME              :" />
+
+                <TextView
+                    android:id="@+id/addresstext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Email               :" />
+
+                <TextView
+                    android:id="@+id/phonetext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="Phone              :" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/UserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/UserEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/UserPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="TextView" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/editprofile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#7EFFD1"
+                android:text="Edit" />
+
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/deleteprofile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#EA2F2F"
+                android:text="Delete Profil" />
+        </LinearLayout>
+
+    </LinearLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -47,82 +150,5 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/nametext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="355dp"
-        android:layout_marginLeft="40dp"
-        android:text="NAME              :" />
-
-    <TextView
-        android:id="@+id/addresstext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="405dp"
-        android:layout_marginLeft="40dp"
-        android:text="Email               :" />
-
-    <TextView
-        android:id="@+id/phonetext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="455dp"
-        android:layout_marginLeft="40dp"
-        android:text="Phone              :" />
-
-    <TextView
-        android:id="@+id/UserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="355dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/UserEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="405dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/UserPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="455dp"
-        android:layout_marginLeft="150dp"
-        android:text="TextView" />
-
-    <Button
-        android:id="@+id/editprofile"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
-        android:backgroundTint="#7EFFD1"
-        android:text="Edit" />
-
-    <Button
-        android:id="@+id/deleteprofile"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp"
-        android:backgroundTint="#EA2F2F"
-        android:text="Delete Profil" />
-
-    <ImageView
-        android:id="@+id/profil"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp"
-        android:background="@drawable/profilbtn"
-        app:srcCompat="@drawable/user_large" />
 
 </RelativeLayout>

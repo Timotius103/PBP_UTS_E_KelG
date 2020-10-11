@@ -132,7 +132,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:paddingTop="20dp"
-                android:paddingBottom="30dp"
+                android:paddingBottom="20dp"
                 android:paddingRight="20dp">
                 <Button
                     android:layout_weight="1"
