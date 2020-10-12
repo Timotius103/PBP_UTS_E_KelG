@@ -63,7 +63,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_weight="1.1"
+                android:layout_weight="1.3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="40dp"
-                    android:text="NAME              :" />
+                    android:text="NAME          :" />
 
                 <TextView
                     android:id="@+id/addresstext"
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40dp"
                     android:layout_marginTop="10dp"
-                    android:text="Email               :" />
+                    android:text="Email           :" />
 
                 <TextView
                     android:id="@+id/phonetext"
@@ -89,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="40dp"
-                    android:text="Phone              :" />
+                    android:text="Phone         :" />
             </LinearLayout>
             <LinearLayout
                 android:layout_weight="1"
