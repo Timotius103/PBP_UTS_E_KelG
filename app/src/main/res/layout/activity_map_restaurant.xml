@@ -13,6 +13,13 @@
         android:scaleType="fitXY"
         app:srcCompat="@drawable/headline" />
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:padding="10dp"
+        android:src="@drawable/logo" />
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
