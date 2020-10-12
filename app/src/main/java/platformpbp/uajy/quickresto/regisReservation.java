@@ -51,9 +51,9 @@ public class regisReservation extends AppCompatActivity {
         title.setText(namaresto);
         gambar=findViewById(R.id.image_resto_detail);
 
-        username = sp.getUsernameS();
-        user=findViewById(R.id.UserName);
-        user.setText(username);
+//        username = sp.getUsernameS();
+//        user=findViewById(R.id.UserName);
+//        user.setText(username);
 
 
         url=getIntent().getStringExtra("gambar2");

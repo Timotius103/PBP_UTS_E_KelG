@@ -32,9 +32,9 @@ public class MyReservationMenu extends AppCompatActivity {
         date=findViewById(R.id.datereserveproses);
         time=findViewById(R.id.timeproses);
 
-        username = sp.getUsernameS();
-        user=findViewById(R.id.UserName);
-        user.setText(username);
+//        username = sp.getUsernameS();
+//        user=findViewById(R.id.UserName);
+//        user.setText(username);
 
         //sleect dari mysql
 

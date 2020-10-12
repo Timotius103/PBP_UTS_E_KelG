@@ -27,17 +27,17 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_weight="1.2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1.2"
             android:padding="70dp">
 
             <ImageButton
                 android:id="@+id/profil"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitCenter"
                 android:background="@drawable/profilbtn"
+                android:scaleType="fitCenter"
                 app:srcCompat="@drawable/user_large" />
 
         </LinearLayout>
@@ -50,73 +50,38 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:id="@+id/fullname_update"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="111dp"
                 android:layout_marginBottom="@dimen/bottom_margin"
+                android:layout_weight="1"
                 android:hint="@string/hint4"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fullnameupdte"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"></com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/newPhone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginBottom="@dimen/bottom_margin"
+                android:hint="@string/hint3"
                 app:errorEnabled="true">
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
-                    android:id="@+id/fullnameupdte">
+                    android:id="@+id/phoneEdit">
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:id="@+id/passwordawal"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginBottom="@dimen/bottom_margin"
-                android:hint="@string/hint2"
-                app:errorEnabled="true">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:id="@+id/awalpass">
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:id="@+id/newpass"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginBottom="@dimen/bottom_margin"
-                android:hint="@string/hint5"
-                app:errorEnabled="true">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:id="@+id/newpassword">
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:id="@+id/confirmpass"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginBottom="@dimen/bottom_margin"
-                android:hint="@string/hint6"
-                app:errorEnabled="true">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:id="@+id/passwordconfrm">
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
-
         </LinearLayout>
 
 

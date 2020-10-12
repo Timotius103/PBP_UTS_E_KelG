@@ -2,11 +2,13 @@ package platformpbp.uajy.quickresto;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
@@ -31,10 +33,14 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+
+import platformpbp.uajy.quickresto.dabase.DatabaseClient;
+import platformpbp.uajy.quickresto.model.User;
 
 public class ProfileEdit extends AppCompatActivity {
 
@@ -43,10 +49,11 @@ public class ProfileEdit extends AppCompatActivity {
     Button done;
     private ImageView imageView;
     private Uri filePath;
-
-    String encrip, decrip;
+    TextInputEditText name,phone;
+    String encrip, decrip,email;
     String enEmail;
     FirebaseStorage storage;
+    private User currentUser;
     StorageReference storageReference;
 
     private final int PICK_IMAGE_REQUEST = 71;
@@ -54,68 +61,103 @@ public class ProfileEdit extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_edit);
+        UserClass userClass = new UserClass();
+        SharePreferenceClass sp = new SharePreferenceClass(this);
+
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+
+        name=findViewById(R.id.fullnameupdte);
+        phone=findViewById(R.id.phoneEdit);
+
+        userClass = sp.getuser();
+        email = userClass.getMail();
+        findEmail(email);
 
         backmr = (FloatingActionButton) findViewById(R.id.floating_back_mr);
         done = (Button) findViewById(R.id.update);
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String nama=name.getText().toString();
+                String tlpon=phone.getText().toString();
+
+                if(name.equals("")){
+                    Toast.makeText(getApplicationContext(), "Please Fill Full Name!", Toast.LENGTH_SHORT).show();
+                }else if(phone.equals("")){
+                    Toast.makeText(getApplicationContext(), "Please Fill phone!", Toast.LENGTH_SHORT).show();
+                }else{
+                    currentUser.setFullName(nama);
+                    currentUser.setPhone(tlpon);
+                    update(currentUser);
+                    uploadImage();
+                }
+
+            }
+        });
 
 //        btnChoose = (Button)findViewById(R.id.btnChoose);
 
         backmr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProfileEdit.this,Profile.class);
+                Intent intent = new Intent(ProfileEdit.this, Profile.class);
                 startActivity(intent);
             }
         });
+    }
+    private void findEmail(final String cari){
+        class GetUsers extends AsyncTask<Void, Void, List<User>> {
 
-
-
-
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
-        imageView = (ImageView) findViewById(R.id.profil);
-        try {
-
-            storageReference = FirebaseStorage.getInstance().getReference().child("photo_profile").child(Common.currentUser.getMail());
-
-            storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-
-                @Override
-
-
-                public void onSuccess(Uri uri) {
-                    Glide.with(ProfileEdit.this)
-                            .load(uri)
-                            .into(imageView);
-
-                }
-
-            }).addOnFailureListener(new OnFailureListener() {
-
-
-                @Override
-                public void onFailure(@NonNull Exception e) {
-
-                }
-            });
-
-        }catch (Exception e){e.printStackTrace();}
-
-        storageReference = FirebaseStorage.getInstance().getReference().child("photo_profile");
-
-
-//        btnChoose.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                chooseImage();
-//            }
-//        });
-        done.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                uploadImage();
+            protected List<User> doInBackground(Void... voids) {
+                List<User> userList = DatabaseClient
+                        .getInstance2(getApplicationContext())
+                        .getDatabase()
+                        .userDAO()
+                        .getCari(cari);
+                return userList;
             }
-        });
+
+            @Override
+            protected void onPostExecute(List<User> users) {
+                super.onPostExecute(users);
+                name.setText(users.get(0).getFullName());
+                phone.setText(users.get(0).getPhone());
+                currentUser = users.get(0);
+                if (users.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Empty List", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+
+        GetUsers get = new GetUsers();
+        get.execute();
+    }
+
+    private void update(final User user){
+        class UpdateUser extends AsyncTask<Void, Void, Void> {
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+
+                DatabaseClient.getInstance2(ProfileEdit.this).getDatabase()
+                        .userDAO()
+                        .update(user);
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                Toast.makeText(ProfileEdit.this, "User updated", Toast.LENGTH_SHORT).show();
+//                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+//                transaction.hide(UpdateFragment.this).commit();
+            }
+        }
+
+        UpdateUser update = new UpdateUser();
+        update.execute();
     }
 
     @Override
@@ -136,98 +178,60 @@ public class ProfileEdit extends AppCompatActivity {
     private void uploadImage() {
 
         TextInputEditText edtName = (TextInputEditText) findViewById(R.id.fullnameupdte);
-        TextInputEditText edtPassword = (TextInputEditText) findViewById(R.id.awalpass);
-        TextInputEditText edtNewPassword = (TextInputEditText) findViewById(R.id.newpassword);
-        TextInputEditText edtRepeatPassword = (TextInputEditText) findViewById(R.id.passwordconfrm);
-
-        enEmail=Common.currentUser.getMail();
-        enEmail=encodeUserEmail(enEmail);
+        TextInputEditText edtPhone = (TextInputEditText) findViewById(R.id.phoneEdit);
 
 
-        try {
-            decrip = decrypt(Common.currentUser.getPass(), edtPassword.getText().toString());
-            if (decrip.equals(edtPassword.getText().toString())) {
-                if (edtNewPassword.getText().toString().equals(edtRepeatPassword.getText().toString())) {
-                    try {
-                        encrip = encrypt(edtNewPassword.getText().toString());
-                        Map<String, Object> DataUpdate = new HashMap<>();
-                        DataUpdate.put("pass", encrip);
-                        DataUpdate.put("fullName", edtName.getText().toString());
-                        DataUpdate.put("mail", enEmail);
+        enEmail=currentUser.getMail().replace(".",",");
 
-                        //update
-                        DatabaseReference user = FirebaseDatabase.getInstance().getReference("User");
-                        user.child(enEmail)
-                                .updateChildren(DataUpdate);
+        Map<String, Object> DataUpdate = new HashMap<>();
+        DataUpdate.put("fullName", edtName.getText().toString());
+        DataUpdate.put("phone", edtPhone.getText().toString());
+//
+        //update
+        DatabaseReference user = FirebaseDatabase.getInstance().getReference("User");
+        user.child(enEmail).child("fullName").setValue(edtName.getText().toString());
+        user.child(enEmail).child("phone").setValue(edtPhone.getText().toString());
+        System.out.println("name: " + edtName.getText().toString());
+        System.out.println("enmail: " + enEmail);
+        System.out.println("phonenya: " + edtPhone.getText().toString());
+        //update
 
-                        if (filePath != null) {
-                            final ProgressDialog progressDialog = new ProgressDialog(this);
-                            progressDialog.setTitle("Uploading...");
-                            progressDialog.show();
-                            StorageReference ref = storageReference.child(Common.currentUser.getMail());
-                            ref.putFile(filePath)
-                                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                        @Override
-                                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                            progressDialog.dismiss();
-                                            Toast.makeText(ProfileEdit.this, "Uploaded", Toast.LENGTH_SHORT).show();
+        if (filePath != null) {
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+            StorageReference ref = storageReference.child(Common.currentUser.getMail());
+            ref.putFile(filePath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressDialog.dismiss();
+                            Toast.makeText(ProfileEdit.this, "Uploaded", Toast.LENGTH_SHORT).show();
 
-                                            //Intent intent = new Intent(UpdateProfile.this, Home.class);
-                                            //startActivity(intent);
-                                        }
-                                    })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            progressDialog.dismiss();
-                                            Toast.makeText(ProfileEdit.this, "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                        }
-                                    })
-                                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                                        @Override
-                                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot
-                                                    .getTotalByteCount());
-                                            progressDialog.setMessage("Uploaded " + (int) progress + "%");
-                                        }
-                                    });
-
+                            //Intent intent = new Intent(UpdateProfile.this, Home.class);
+                            //startActivity(intent);
                         }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(ProfileEdit.this, "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot
+                                    .getTotalByteCount());
+                            progressDialog.setMessage("Uploaded " + (int) progress + "%");
+                        }
+                    });
 
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-
-                } else {
-                    Toast.makeText(ProfileEdit.this, "New Password doesn't match", Toast.LENGTH_LONG).show();
-
-                }
-            } else {
-                Toast.makeText(ProfileEdit.this, "Wrong old Password", Toast.LENGTH_LONG).show();
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
 
-    }
 
-    private void chooseImage() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
-    }
 
-    private String encrypt(String password) throws Exception {
-
-        SecretKeySpec key = generateKey(password);
-        Cipher c = Cipher.getInstance(AES);
-        c.init(Cipher.ENCRYPT_MODE, key);
-        byte[] encVal = c.doFinal(password.getBytes());
-        String encryptedValue = Base64.encodeToString(encVal, Base64.DEFAULT);
-        return encryptedValue;
     }
 
     private String decrypt(String decrip, String password) throws Exception {
@@ -249,8 +253,8 @@ public class ProfileEdit extends AppCompatActivity {
         SecretKeySpec secretKeySpec = new SecretKeySpec(key, "AES");
         return secretKeySpec;
     }
-    private String encodeUserEmail(String userEmail) {
-        return userEmail.replace(".", ",");
-    }
+//    private String encodeUserEmail(String userEmail) {
+//        return userEmail.replace(".", ",");
+//    }
 
 }

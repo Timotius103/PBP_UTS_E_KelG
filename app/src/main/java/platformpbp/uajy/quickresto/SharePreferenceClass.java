@@ -16,10 +16,6 @@ public class SharePreferenceClass {
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
 
-//    private String fullName;
-//    private String phone;
-//    private String mail;
-//    private String pass;
 
     private static final String EMAIL="MAIL";
     private static final String PREFERENCE_NAME = "JSMPref";
@@ -28,12 +24,6 @@ public class SharePreferenceClass {
     private static final String PHONE ="phone";
     private static final String PASS="pass";
 
-//    public String email;
-//    public String nameRest;
-//    public String address;
-//    public int jmlhOrg;
-//    public String dateResrv;
-//    public String timeResrv;
 
     private static final String RESTNAME="revname";
     private static final String ADDRESS="address";

@@ -22,22 +22,25 @@ public class ReservationMenu extends AppCompatActivity {
     private ArrayList<Restorant>ListRestorant;
     private FloatingActionButton floatback;
     private RecyclerViewAdapter adapter;
+    private String username;
     TextView txtFullName;
     ActivityReservationMenuBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ListRestorant=new listRestorantDummy().resto;
         super.onCreate(savedInstanceState);
-        String username;
+        UserClass userClass=new UserClass();
         SharePreferenceClass sp=new SharePreferenceClass(this);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_reservation_menu);
         binding.recyclerResto.setLayoutManager((new LinearLayoutManager(this)));
         adapter=new RecyclerViewAdapter(ReservationMenu.this,ListRestorant);
         binding.setBaru(adapter);
 
-        username = sp.getUsernameS();
-        txtFullName=findViewById(R.id.UserName);
-        txtFullName.setText(username);
+//        userClass=sp.getuser();
+////        fullname=userClass.getFullName();
+//        username = userClass.getMail();
+//        txtFullName=findViewById(R.id.UserName);
+//        txtFullName.setText(username);
         floatback=findViewById(R.id.floating_back);
     }
 
