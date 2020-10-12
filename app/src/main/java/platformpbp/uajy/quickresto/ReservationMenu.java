@@ -28,12 +28,16 @@ public class ReservationMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         ListRestorant=new listRestorantDummy().resto;
         super.onCreate(savedInstanceState);
+        String username;
+        SharePreferenceClass sp=new SharePreferenceClass(this);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_reservation_menu);
         binding.recyclerResto.setLayoutManager((new LinearLayoutManager(this)));
         adapter=new RecyclerViewAdapter(ReservationMenu.this,ListRestorant);
         binding.setBaru(adapter);
+
+        username = sp.getUsernameS();
         txtFullName=findViewById(R.id.UserName);
-        txtFullName.setText(Common.currentUser.getFullName());
+        txtFullName.setText(username);
         floatback=findViewById(R.id.floating_back);
     }
 

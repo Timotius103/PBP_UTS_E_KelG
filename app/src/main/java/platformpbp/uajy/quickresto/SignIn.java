@@ -36,6 +36,8 @@ import java.security.MessageDigest;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
+import platformpbp.uajy.quickresto.model.Reservation;
+
 public class SignIn extends AppCompatActivity {
     private Button signin;
     private Button back;
@@ -61,9 +63,13 @@ public class SignIn extends AppCompatActivity {
         pass=(TextInputLayout)findViewById(R.id.pass_login);
         mAuth=FirebaseAuth.getInstance();
 
+
+
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 login();
             }
         });
@@ -120,6 +126,8 @@ public class SignIn extends AppCompatActivity {
 //    }
 
     private void login() {
+        UserClass user=new UserClass();
+        SharePreferenceClass sp=new SharePreferenceClass(this);
         String mail=inputEmail.getText().toString();
         String pw=password.getText().toString();
         String email = inputEmail.getText().toString();
@@ -155,6 +163,9 @@ public class SignIn extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         CheckEmail();
                         //startActivity(new Intent(Login.this,Dashboard.class));
+                        user.setMail(mail);
+                        user.setPass(pw);
+                        sp.createSession(user);
                     } else {
                         Toast.makeText(SignIn.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         dialog.cancel();

@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -30,12 +31,13 @@ public class Home extends AppCompatActivity {
     TextView txtFullName;
     private String CHANNEL_ID = "Channel 3";
 
-    String name,alamt,no,tglan,thun;
-
+    String name,alamt,no,tglan,thun,cek=" ";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        String username;
+        SharePreferenceClass sp=new SharePreferenceClass(this);
 
         reserve = (ImageButton) findViewById(R.id.rsrvenow);
         myreserve = (ImageButton) findViewById(R.id.myreserve);
@@ -43,8 +45,9 @@ public class Home extends AppCompatActivity {
         profil = (ImageButton) findViewById(R.id.profil);
         logout = (Button) findViewById(R.id.out);
 
+        username = sp.getUsernameS();
         txtFullName=findViewById(R.id.UserName);
-        txtFullName.setText(Common.currentUser.getFullName());
+        txtFullName.setText(username);
 
         name=getIntent().getStringExtra("resto4");
         alamt=getIntent().getStringExtra("alamat4");
@@ -52,6 +55,8 @@ public class Home extends AppCompatActivity {
         tglan=getIntent().getStringExtra("Date1");
         thun=getIntent().getStringExtra("Time1");
 
+        cek=getIntent().getStringExtra("masuk");
+        System.out.println("TESSSSS ASUUU"+cek);
         reserve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,6 +75,12 @@ public class Home extends AppCompatActivity {
                 intent.putExtra("Date",tglan);
                 intent.putExtra("Time",thun);
                 startActivity(intent);
+//                if (cek.equals("")){
+//
+//                }else{
+//                    Toast.makeText(Home.this, "You touch me?" , Toast.LENGTH_LONG).show();
+//
+//                }
             }
         });
 
@@ -101,7 +112,7 @@ public class Home extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         createNotificationChannel();
                         addNotification();
-                        FirebaseAuth.getInstance().signOut();
+                        sp.closeSession();
                         Intent intent = new Intent(Home.this,LoginSignIn.class);
                         startActivity(intent);
                     }

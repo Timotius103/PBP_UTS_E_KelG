@@ -53,6 +53,9 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        UserClass userClass=new UserClass();
+        SharePreferenceClass sp=new SharePreferenceClass(this);
+
         fullname=(TextInputEditText) findViewById(R.id.name);
         phone=(TextInputEditText) findViewById(R.id.phone);
         signup=(Button)findViewById(R.id.Next);
@@ -135,6 +138,11 @@ public class SignUp extends AppCompatActivity {
                                                         UserClass user = new UserClass(fullname.getText().toString(), phone.getText().toString(), email.getText().toString(), enkrip);
                                                         table_user.child(enEmail).setValue(user);
                                                         sendEmailVerification();
+                                                        userClass.setFullName(name);
+                                                        userClass.setPhone(tlp);
+                                                        userClass.setMail(mail);
+                                                        userClass.setPass(pw);
+                                                        sp.createSession(userClass);
                                                     }
                                                 }).addOnFailureListener(new OnFailureListener() {
                                             @Override

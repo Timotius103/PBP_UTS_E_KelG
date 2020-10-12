@@ -18,11 +18,15 @@ public class Profile extends AppCompatActivity {
     TextView txtFullName;
     TextView txtEmail;
     TextView txtPhone;
+    String fullname,email,tlpon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);;
+
+        UserClass userClass=new UserClass();
+        SharePreferenceClass sp=new SharePreferenceClass(this);
 
         backmr = (FloatingActionButton) findViewById(R.id.floating_back_mr);
         editprofile = (Button) findViewById(R.id.editprofile);
@@ -30,9 +34,14 @@ public class Profile extends AppCompatActivity {
         txtEmail=findViewById(R.id.UserEmail);
         txtPhone=findViewById(R.id.UserPhone);
 
-        txtFullName.setText(Common.currentUser.getFullName());
-        txtEmail.setText(Common.currentUser.getMail());
-        txtPhone.setText(Common.currentUser.getPhone());
+        userClass=sp.getuser();
+        fullname=userClass.getFullName();
+        email=userClass.getMail();
+        tlpon=userClass.getPhone();
+
+        txtFullName.setText(fullname);
+        txtEmail.setText(email);
+        txtPhone.setText(tlpon);
 
         backmr.setOnClickListener(new View.OnClickListener() {
             @Override

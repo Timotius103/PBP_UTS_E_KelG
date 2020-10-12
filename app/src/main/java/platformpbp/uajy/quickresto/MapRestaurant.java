@@ -142,6 +142,8 @@ public class MapRestaurant extends AppCompatActivity implements OnMapReadyCallba
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
         setContentView(R.layout.activity_map_restaurant);
+        String username;
+        SharePreferenceClass sp=new SharePreferenceClass(this);
         nextPage=findViewById(R.id.next_page);
         lon = getIntent().getDoubleExtra("longitude",0);
         la = getIntent().getDoubleExtra("latitude",0);
@@ -149,8 +151,10 @@ public class MapRestaurant extends AppCompatActivity implements OnMapReadyCallba
         alamatResto=getIntent().getStringExtra("alamat");
         url=getIntent().getStringExtra("gambar");
         mapView = findViewById(R.id.mapView);
+
+        username = sp.getUsernameS();
         txtFullName=findViewById(R.id.UserNameMap);
-        txtFullName.setText(Common.currentUser.getFullName());
+        txtFullName.setText(username);
         backmr = (FloatingActionButton) findViewById(R.id.floating_backMap);
 //        searchfab = findViewById(R.id.fab_location_Search);
 //        navifab = findViewById(R.id.fab_location_navigation);

@@ -12,19 +12,12 @@ public class LoginSignIn extends AppCompatActivity {
     FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        mAuth= FirebaseAuth.getInstance();
-        if(mAuth.getCurrentUser() != null)
-        {
-            Intent intent = new Intent(LoginSignIn.this, Home.class);
-            startActivity(intent);
-//            finish();
-        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_sign_in);
 
 
-
     }
+
     public void signin(View view){
         startActivity(new Intent(LoginSignIn.this,SignIn.class));
     }
