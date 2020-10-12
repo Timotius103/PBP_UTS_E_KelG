@@ -69,6 +69,8 @@ public class ProfileEdit extends AppCompatActivity {
         });
 
 
+
+
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         imageView = (ImageView) findViewById(R.id.profil);

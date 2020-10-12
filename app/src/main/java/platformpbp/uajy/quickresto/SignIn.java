@@ -220,11 +220,13 @@ public class SignIn extends AppCompatActivity {
                             } else {
                                 Toast.makeText(SignIn.this, "Please Verify Your Email!", Toast.LENGTH_LONG).show();
                                 mAuth.signOut();
+                                mDialog.cancel();
                             }
 
                         } else {
                             Toast.makeText(SignIn.this, "Please Verify Your Account!", Toast.LENGTH_SHORT).show();
                             mAuth.signOut();
+                            mDialog.cancel();
                         }
 
                     } catch (Exception e) {
@@ -234,6 +236,7 @@ public class SignIn extends AppCompatActivity {
 
                 } else {
                     Toast.makeText(SignIn.this, "User not exist in Database !", Toast.LENGTH_SHORT).show();
+                    mDialog.cancel();
                 }
                 mDialog.dismiss();
             }

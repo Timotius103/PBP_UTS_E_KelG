@@ -10,6 +10,7 @@ import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Base64;
@@ -37,6 +38,9 @@ import java.security.MessageDigest;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
+import platformpbp.uajy.quickresto.dabase.DatabaseClient;
+import platformpbp.uajy.quickresto.model.User;
+
 public class SignUp extends AppCompatActivity {
     private Button signup,back;
     private TextInputEditText fullname,phone,email,password;
@@ -53,8 +57,7 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        UserClass userClass=new UserClass();
-        SharePreferenceClass sp=new SharePreferenceClass(this);
+
 
         fullname=(TextInputEditText) findViewById(R.id.name);
         phone=(TextInputEditText) findViewById(R.id.phone);
@@ -138,11 +141,8 @@ public class SignUp extends AppCompatActivity {
                                                         UserClass user = new UserClass(fullname.getText().toString(), phone.getText().toString(), email.getText().toString(), enkrip);
                                                         table_user.child(enEmail).setValue(user);
                                                         sendEmailVerification();
-                                                        userClass.setFullName(name);
-                                                        userClass.setPhone(tlp);
-                                                        userClass.setMail(mail);
-                                                        userClass.setPass(pw);
-                                                        sp.createSession(userClass);
+                                                        addUser();
+
                                                     }
                                                 }).addOnFailureListener(new OnFailureListener() {
                                             @Override
@@ -287,6 +287,38 @@ public class SignUp extends AppCompatActivity {
         manager.notify(0, builder.build());
     }
 
+    private void addUser() {
+        final String mail = email.getText().toString();
+        final String pwd = password.getText().toString();
+        final String nama = fullname.getText().toString();
+        final String number = phone.getText().toString();
+
+        class AddUser extends AsyncTask<Void, Void, Void> {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                User user = new User();
+                user.setFullName(nama);
+                user.setPhone(number);
+                user.setMail(mail);
+                user.setPass(pwd);
+
+
+                DatabaseClient.getInstance2(getApplicationContext()).getDatabase()
+                        .userDAO()
+                        .insert(user);
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+            }
+        }
+
+        AddUser add = new AddUser();
+        add.execute();
+    }
     public void back2(View view){
         startActivity(new Intent(SignUp.this,LoginSignIn.class));
     }

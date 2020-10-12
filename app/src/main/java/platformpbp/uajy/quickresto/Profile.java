@@ -3,12 +3,19 @@ package platformpbp.uajy.quickresto;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.List;
+
+import platformpbp.uajy.quickresto.dabase.DatabaseClient;
+import platformpbp.uajy.quickresto.model.User;
 
 public class Profile extends AppCompatActivity {
 
@@ -35,13 +42,11 @@ public class Profile extends AppCompatActivity {
         txtPhone=findViewById(R.id.UserPhone);
 
         userClass=sp.getuser();
-        fullname=userClass.getFullName();
+//        fullname=userClass.getFullName();
         email=userClass.getMail();
-        tlpon=userClass.getPhone();
+//        tlpon=userClass.getPhone();
 
-        txtFullName.setText(fullname);
-        txtEmail.setText(email);
-        txtPhone.setText(tlpon);
+        findEmail(email);
 
         backmr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,5 +63,34 @@ public class Profile extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void findEmail(final String cari){
+        class GetUsers extends AsyncTask<Void, Void, List<User>>{
+
+            @Override
+            protected List<User> doInBackground(Void... voids) {
+                List<User> userList = DatabaseClient
+                        .getInstance2(getApplicationContext())
+                        .getDatabase()
+                        .userDAO()
+                        .getCari(cari);
+                return userList;
+            }
+
+            @Override
+            protected void onPostExecute(List<User> users) {
+                super.onPostExecute(users);
+                txtFullName.setText(users.get(0).getFullName());
+                txtEmail.setText(users.get(0).getMail());
+                txtPhone.setText(users.get(0).getPhone());
+                if (users.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Empty List", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+
+        GetUsers get = new GetUsers();
+        get.execute();
     }
 }
