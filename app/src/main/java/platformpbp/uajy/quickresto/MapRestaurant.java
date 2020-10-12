@@ -153,7 +153,7 @@ public class MapRestaurant extends AppCompatActivity implements OnMapReadyCallba
         mapView = findViewById(R.id.mapView);
 
         username = sp.getUsernameS();
-        txtFullName=findViewById(R.id.UserNameMap);
+        txtFullName=findViewById(R.id.UserName);
         txtFullName.setText(username);
         backmr = (FloatingActionButton) findViewById(R.id.floating_backMap);
 //        searchfab = findViewById(R.id.fab_location_Search);
