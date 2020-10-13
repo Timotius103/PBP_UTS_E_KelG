@@ -163,9 +163,6 @@ public class SignIn extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         CheckEmail();
                         //startActivity(new Intent(Login.this,Dashboard.class));
-                        user.setMail(mail);
-                        user.setPass(pw);
-                        sp.createSession(user);
                     } else {
                         Toast.makeText(SignIn.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         dialog.cancel();
@@ -178,6 +175,11 @@ public class SignIn extends AppCompatActivity {
     }
 
     private void CheckEmail() {
+        UserClass user=new UserClass();
+        SharePreferenceClass sp=new SharePreferenceClass(this);
+        String mail=inputEmail.getText().toString();
+        String pw=password.getText().toString();
+        String email = inputEmail.getText().toString();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference table_user = database.getReference("User");
         uid = mAuth.getUid();
@@ -208,6 +210,9 @@ public class SignIn extends AppCompatActivity {
                             Boolean emailflag = user2.isEmailVerified();
                             dataSnapshot.child(uid).getValue(String.class);
                             if (emailflag) {
+                                user.setMail(mail);
+                                user.setPass(pw);
+                                sp.createSession(user);
                                 Intent homeIntent = new Intent(SignIn.this, Home.class);
                                 Common.currentUser = user;
                                 startActivity(homeIntent);
@@ -221,9 +226,11 @@ public class SignIn extends AppCompatActivity {
                                 Toast.makeText(SignIn.this, "Please Verify Your Email!", Toast.LENGTH_LONG).show();
                                 mAuth.signOut();
                                 mDialog.cancel();
+
                             }
 
                         } else {
+
                             Toast.makeText(SignIn.this, "Please Verify Your Account!", Toast.LENGTH_SHORT).show();
                             mAuth.signOut();
                             mDialog.cancel();
@@ -235,8 +242,10 @@ public class SignIn extends AppCompatActivity {
 
 
                 } else {
+
                     Toast.makeText(SignIn.this, "User not exist in Database !", Toast.LENGTH_SHORT).show();
                     mDialog.cancel();
+
                 }
                 mDialog.dismiss();
             }
