@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/headline_large" />
+        app:srcCompat="@drawable/headline_large"
+        android:layout_marginBottom="-150dp"/>
 
     <ImageView
         android:id="@+id/logo"
@@ -29,7 +30,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1.2"
+            android:layout_weight="0.6"
             android:padding="70dp">
 
             <ImageButton
@@ -53,7 +54,7 @@
                 android:id="@+id/fullname_update"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="111dp"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="@dimen/bottom_margin"
                 android:layout_weight="1"
                 android:hint="@string/hint4"
@@ -84,19 +85,24 @@
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="30dp">
+
+            <Button
+                android:id="@+id/update"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/profilbtn"
+                android:backgroundTint="#FFFFFF"
+                android:text="DONE"
+                android:textSize="15sp"/>
+        </LinearLayout>
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/update"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:background="@drawable/profilbtn"
-        android:backgroundTint="#FFFFFF"
-        android:text="DONE"
-        android:textSize="15sp"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="20dp"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
