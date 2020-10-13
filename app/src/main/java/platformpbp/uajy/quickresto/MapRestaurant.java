@@ -174,6 +174,8 @@ public class MapRestaurant extends AppCompatActivity implements OnMapReadyCallba
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MapRestaurant.this,regisReservation.class);
+                intent.putExtra("longitutePassing",lon);
+                intent.putExtra("latitudePassing",la);
                 intent.putExtra("gambar2",url);
                 intent.putExtra("alamat2",String.valueOf(alamatResto));
                 intent.putExtra("resto2",String.valueOf(namaresto));

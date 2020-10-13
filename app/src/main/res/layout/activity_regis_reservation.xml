@@ -105,6 +105,7 @@
                     <Button
                         android:id="@+id/Date"
                         android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:backgroundTint="#03DAC5"
@@ -140,7 +141,7 @@
             <Button
                 android:id="@+id/submit_regis"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="77dp"
                 android:backgroundTint="#03DAC5"
                 android:text="R E S E R V E"
                 android:textColorLink="#FFFFFF"

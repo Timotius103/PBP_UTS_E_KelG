@@ -24,6 +24,7 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 import platformpbp.uajy.quickresto.model.Reservation;
+import platformpbp.uajy.quickresto.model.Restorant;
 
 
 public class regisReservation extends AppCompatActivity {
@@ -33,12 +34,13 @@ public class regisReservation extends AppCompatActivity {
     TextView title,user;
     ImageView gambar;
     FloatingActionButton balik;
-    Double lon,la;
+    double lon,la;
     private String namaresto,alamatRest,url,email,date,waktu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regis_reservation);
+
         String username;
         Reservation reserv=new Reservation();
         SharePreferenceClass sp=new SharePreferenceClass(regisReservation.this);
@@ -46,6 +48,10 @@ public class regisReservation extends AppCompatActivity {
         chooseDate=findViewById(R.id.Date);
         number=findViewById(R.id.input_number);
         time=findViewById(R.id.input_time);
+
+
+        lon=getIntent().getDoubleExtra("longitutePassing",0);
+        la=getIntent().getDoubleExtra("latitudePassing",0);
 
         banyakLayout=findViewById(R.id.input_number_layout);
         tanggalLayout=findViewById(R.id.input_date_layout);
@@ -71,7 +77,11 @@ public class regisReservation extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(regisReservation.this,MapRestaurant.class);
-
+                intent.putExtra("longitude",lon);
+                intent.putExtra("latitude",la);
+                intent.putExtra("gambar",url);
+                intent.putExtra("resto",namaresto);
+                intent.putExtra("alamat",alamatRest);
                 startActivity(intent);
             }
         });
