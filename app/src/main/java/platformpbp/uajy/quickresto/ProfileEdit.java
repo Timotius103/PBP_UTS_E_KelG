@@ -50,6 +50,7 @@ public class ProfileEdit extends AppCompatActivity {
     private ImageView imageView;
     private Uri filePath;
     TextInputEditText name,phone;
+    TextInputLayout namaLayout,phoneLayout;
     String encrip, decrip,email;
     String enEmail;
     FirebaseStorage storage;
@@ -69,6 +70,8 @@ public class ProfileEdit extends AppCompatActivity {
 
         name=findViewById(R.id.fullnameupdte);
         phone=findViewById(R.id.phoneEdit);
+        namaLayout=findViewById(R.id.fullname_update);
+        phoneLayout=findViewById(R.id.newPhone);
 
         userClass = sp.getuser();
         email = userClass.getMail();
@@ -82,9 +85,11 @@ public class ProfileEdit extends AppCompatActivity {
                 String nama=name.getText().toString();
                 String tlpon=phone.getText().toString();
 
-                if(name.equals("")){
+                if(nama.isEmpty()){
+                    namaLayout.setError("Fill Full Name!");
                     Toast.makeText(getApplicationContext(), "Please Fill Full Name!", Toast.LENGTH_SHORT).show();
-                }else if(phone.equals("")){
+                }else if(tlpon.isEmpty()){
+                    phoneLayout.setError("Fill Phone!");
                     Toast.makeText(getApplicationContext(), "Please Fill phone!", Toast.LENGTH_SHORT).show();
                 }else{
                     currentUser.setFullName(nama);
