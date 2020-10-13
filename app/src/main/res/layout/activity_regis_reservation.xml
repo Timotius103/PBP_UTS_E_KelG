@@ -27,7 +27,7 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_weight="0.6"
+            android:layout_weight="0.75"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -37,7 +37,7 @@
                 style="@style/TextAppearance.AppCompat.Title"
                 android:textStyle="bold"
                 android:text=""
-                android:layout_marginTop="140dp"
+                android:layout_marginTop="130dp"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -97,7 +97,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/input_date"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="match_parent"
                             android:autofillHints=""
                             android:hint="Date"
                             android:inputType="text" />
@@ -106,9 +106,7 @@
                         android:id="@+id/Date"
                         android:layout_weight="1"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_marginTop="-2dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_height="match_parent"
                         android:backgroundTint="#03DAC5"
                         android:text="Choose Date"
                         android:textColorLink="#FFFFFF"
@@ -137,12 +135,12 @@
             android:layout_weight="1.1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="30dp">
+            android:padding="20dp">
 
             <Button
                 android:id="@+id/submit_regis"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:backgroundTint="#03DAC5"
                 android:text="R E S E R V E"
                 android:textColorLink="#FFFFFF"
