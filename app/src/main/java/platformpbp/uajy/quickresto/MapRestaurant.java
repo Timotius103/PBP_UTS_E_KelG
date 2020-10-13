@@ -54,6 +54,7 @@ import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
 
 import java.util.List;
 
+import platformpbp.uajy.quickresto.model.Restorant;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

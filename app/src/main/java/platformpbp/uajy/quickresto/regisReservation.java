@@ -33,6 +33,7 @@ public class regisReservation extends AppCompatActivity {
     TextView title,user;
     ImageView gambar;
     FloatingActionButton balik;
+    Double lon,la;
     private String namaresto,alamatRest,url,email,date,waktu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

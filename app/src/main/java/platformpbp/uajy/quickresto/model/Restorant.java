@@ -16,6 +16,10 @@ public class Restorant {
     public double latitude;
     public String urlfoto;
 
+    public Restorant(){
+
+    }
+
     public Restorant(String namaResto, String jeniResto, String alamat, double jarak, String tlp, double longitude, double latitude, String urlfoto) {
         NamaResto = namaResto;
         this.jeniResto = jeniResto;
