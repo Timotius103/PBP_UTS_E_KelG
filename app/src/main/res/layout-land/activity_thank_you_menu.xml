@@ -87,7 +87,7 @@
                 android:id="@+id/backtm"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:backgroundTint="#7EFFD1"
+                android:backgroundTint="@color/colorAccent"
                 android:text="BACK TO MENU"
                 android:textColorLink="#FFFFFF"
                 android:textSize="18dp" />

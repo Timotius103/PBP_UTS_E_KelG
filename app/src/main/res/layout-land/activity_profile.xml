@@ -148,7 +148,7 @@
                     android:id="@+id/editprofile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:backgroundTint="#7EFFD1"
+                    android:backgroundTint="@color/colorAccent"
                     android:text="Edit"/>
                 <LinearLayout
                     android:layout_weight="1.8"

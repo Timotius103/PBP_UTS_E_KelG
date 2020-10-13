@@ -82,6 +82,7 @@
                 android:layout_height="match_parent"
                 android:scaleType="fitCenter"
                 android:background="@drawable/mybutton"
+                android:backgroundTint="@color/colorAccent"
                 android:src="@drawable/reserv"/>
         </LinearLayout>
 <!--                        -->
@@ -107,6 +108,7 @@
                     android:layout_marginLeft="5dp"
                     android:src="@drawable/myreserv"
                     android:scaleType="fitCenter"
+                    android:backgroundTint="@color/colorAccent"
                     android:background="@drawable/mybutton" />
                 <LinearLayout
                     android:layout_weight="1.8"
@@ -119,6 +121,7 @@
                     android:layout_width="match_parent"
                     android:id="@+id/rate"
                     android:padding="10dp"
+                    android:backgroundTint="@color/colorAccent"
                     android:background="@drawable/mybutton"
                     android:scaleType="fitCenter"
                     android:src="@drawable/rate" />
