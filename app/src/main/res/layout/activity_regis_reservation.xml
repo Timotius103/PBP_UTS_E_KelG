@@ -140,7 +140,7 @@
             <Button
                 android:id="@+id/submit_regis"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:backgroundTint="#03DAC5"
                 android:text="R E S E R V E"
                 android:textColorLink="#FFFFFF"
