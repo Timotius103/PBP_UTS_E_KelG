@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="platformpbp.uajy.quickresto">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,26 +11,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProfileEdit">
-
-        </activity>
+        <activity android:name=".Camera.CameraActivity"></activity>
+        <activity android:name=".ProfileEdit"></activity>
         <activity android:name=".Profile" />
         <activity android:name=".ThankYouMenu" />
         <activity android:name=".RateMeMenu" />
         <activity android:name=".MyReservationMenu" />
-        <activity android:name=".MapRestaurant"/>
-        <activity android:name=".regisReservation"/>
+        <activity android:name=".MapRestaurant" />
+        <activity android:name=".regisReservation" />
         <activity android:name=".ReservationMenu" />
         <activity android:name=".Home" />
         <activity android:name=".SignUp" />
         <activity android:name=".SignIn" />
         <activity android:name=".LoginSignIn" />
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".SplashActivity" android:theme="@style/SplashTheme">
+        <activity android:name=".MainActivity"></activity>
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

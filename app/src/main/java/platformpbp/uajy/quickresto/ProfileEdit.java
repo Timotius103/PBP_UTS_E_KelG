@@ -39,6 +39,7 @@ import java.util.Map;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
+import platformpbp.uajy.quickresto.Camera.CameraActivity;
 import platformpbp.uajy.quickresto.dabase.DatabaseClient;
 import platformpbp.uajy.quickresto.model.User;
 
@@ -101,8 +102,6 @@ public class ProfileEdit extends AppCompatActivity {
             }
         });
 
-//        btnChoose = (Button)findViewById(R.id.btnChoose);
-
         backmr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -110,6 +109,10 @@ public class ProfileEdit extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    public void camera(View view){
+        Intent intent = new Intent(ProfileEdit.this, CameraActivity.class);
+        startActivity(intent);
     }
     private void findEmail(final String cari){
         class GetUsers extends AsyncTask<Void, Void, List<User>> {
@@ -156,8 +159,6 @@ public class ProfileEdit extends AppCompatActivity {
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
                 Toast.makeText(ProfileEdit.this, "User updated", Toast.LENGTH_SHORT).show();
-//                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-//                transaction.hide(UpdateFragment.this).commit();
             }
         }
 
@@ -258,8 +259,5 @@ public class ProfileEdit extends AppCompatActivity {
         SecretKeySpec secretKeySpec = new SecretKeySpec(key, "AES");
         return secretKeySpec;
     }
-//    private String encodeUserEmail(String userEmail) {
-//        return userEmail.replace(".", ",");
-//    }
 
 }

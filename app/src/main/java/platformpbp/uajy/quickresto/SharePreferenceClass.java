@@ -70,16 +70,7 @@ public class SharePreferenceClass {
     }
 
 
-//    public UserClass getUsername(){
-//        UserClass userClass = new UserClass();
-//
-//    }
-
     public UserClass getuser(){
-//        editor.putString(USERNAME,user.getFullName());
-//        editor.putString(EMAIL, user.getMail());
-//        editor.putString(PHONE,user.getPhone());
-//        editor.putString(PASS,user.getPass());
         UserClass userClass=new UserClass();
         userClass.setFullName(preferences.getString(USERNAME,""));
         userClass.setPhone(preferences.getString(PHONE, ""));

@@ -37,6 +37,7 @@
                 android:id="@+id/profil"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:onClick="camera"
                 android:background="@drawable/profilbtn"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/user_large" />
