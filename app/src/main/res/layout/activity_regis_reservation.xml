@@ -107,6 +107,7 @@
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
+                        android:layout_marginTop="-2dp"
                         android:layout_marginLeft="10dp"
                         android:backgroundTint="#03DAC5"
                         android:text="Choose Date"
