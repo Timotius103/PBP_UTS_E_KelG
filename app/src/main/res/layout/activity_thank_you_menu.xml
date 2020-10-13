@@ -54,8 +54,8 @@
             <Button
                 android:id="@+id/backtm"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:backgroundTint="#7EFFD1"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#03DAC5"
                 android:text="BACK TO MENU"
                 android:textColorLink="#FFFFFF"
                 android:textSize="18dp" />

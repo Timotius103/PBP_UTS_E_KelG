@@ -27,7 +27,8 @@
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
                 android:layout_marginBottom="-150dp"
-                app:srcCompat="@drawable/headline_large" />
+                app:srcCompat="@drawable/headline_large"
+                android:backgroundTint="@color/colorPrimary"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -129,15 +130,15 @@
                 android:layout_weight="1"
                 android:id="@+id/editprofile"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:backgroundTint="#7EFFD1"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#03DAC5"
                 android:text="Edit" />
 
             <Button
                 android:layout_weight="1"
                 android:id="@+id/deleteprofile"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:backgroundTint="#EA2F2F"
                 android:text="Delete Profil" />
         </LinearLayout>

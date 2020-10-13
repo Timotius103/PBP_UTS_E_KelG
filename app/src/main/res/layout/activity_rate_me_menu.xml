@@ -86,7 +86,7 @@
                 android:id="@+id/submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#7EFFD1"
+                android:backgroundTint="#03DAC5"
                 android:text="SUBMIT"
                 android:textColorLink="#FFFFFF"
                 android:textSize="18dp" />

@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="55dp"
         android:layout_marginLeft="10dp"
-        android:text="Hello,"
+        android:text="Hello, "
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
@@ -80,6 +80,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/mybutton"
+                android:backgroundTint="@color/colorAccent"
                 android:scaleType="fitCenter"
                 android:src="@drawable/reserv" />
         </LinearLayout>
@@ -99,7 +100,8 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/myreserv"
                 android:scaleType="fitCenter"
-                android:background="@drawable/mybutton" />
+                android:background="@drawable/mybutton"
+                android:backgroundTint="@color/colorAccent"/>
 
             <LinearLayout
                 android:layout_weight="1.75"
@@ -113,6 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/mybutton"
+                android:backgroundTint="@color/colorAccent"
                 android:scaleType="fitCenter"
                 android:src="@drawable/rate" />
         </LinearLayout>
@@ -129,7 +132,7 @@
             <Button
                 android:id="@+id/out"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:backgroundTint="#EA2F2F"
                 android:text="Log Out" />
         </LinearLayout>
